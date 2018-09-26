@@ -14,7 +14,7 @@ class Wrapper extends Component{
           initialState = [
           {
             id:1,
-            text:"Buy some breads"
+            text:"Clean up house"
           },
           {
             id:2,
@@ -74,7 +74,7 @@ class Wrapper extends Component{
     }
     togglecheck = (id) =>{
         var goal = this.state.items.find(todo => todo.id === id)
-        console.log()
+        
         goal.isDone = !goal.isDone ;
         this.setState({})
         
@@ -82,12 +82,13 @@ class Wrapper extends Component{
     render(){
        return(
            <div className="wrapper">
+              <div>Todo App</div>
                <form onSubmit={this.onAdd}>
                   <input value={this.state.value} onChange={this.onChangeHandler} placeholder="enter task" />  
                <button type="submit">Add</button>
                </form>
                
-             <TodoList check={this.togglecheck} delete={this.deleteItemKey} entries={this.state.items}
+                <TodoList check={this.togglecheck} delete={this.deleteItemKey} entries={this.state.items}
              changeTodo={this.changeTextTodo} />
            </div>
           ); 
