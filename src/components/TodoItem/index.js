@@ -27,16 +27,28 @@ import './style.css'
     }
     render(){    
          return(
-           <li className="todo-item">
+           <li className={this.state.isEditing ? "todo-item-editing" : "todo-item"}>
              {this.state.isEditing ?
                     <form>
                         <input type="text" defaultValue={this.props.text} ref="textInput" />
                         <button type="submit" onClick={(e)=>this.onSave(e, this.props.text)}>Save</button>
-                    </form> : <div><label><input onChange={() =>this.checkboxChange(this.props.id)} type="checkbox" checked={this.props.finished} /> {this.props.text }</label></div>}
+                    </form> : 
                     <div>
-                        <button className="controll-btns" onClick={this.onEditClick} >{this.state.isEditing ? "Cancel" : <i class="fa fa-pencil-alt"></i>}</button> 
-                        {this.state.isEditing ? " " :  <button className="controll-btns" onClick={() => this.delete(this.props.id)} ><i class="fas fa-trash-alt"></i></button>}
-                     </div>  
+                        <label className={this.props.finished ? "label-finished" : ""} >
+                          <input onChange={() =>this.checkboxChange(this.props.id)} type="checkbox" checked={this.props.finished} /> 
+                          {this.props.text }
+                        </label>
+                    </div>  
+                    
+              }
+              {
+                !this.state.isEditing && 
+                    <div>
+                      <button className="controll-btn" onClick={this.onEditClick} ><i class="fa fa-pencil-alt"></i></button> 
+                      <button className="controll-btn" onClick={() => this.delete(this.props.id)} ><i class="fas fa-trash-alt"></i></button>
+                    </div>
+              }
+                     
            </li>                       
          );
      }

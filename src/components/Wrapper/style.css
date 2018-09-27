@@ -1,8 +1,5 @@
 .wrapper{
 	min-width: 320px;
-	border:1px solid #000;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 
@@ -11,6 +8,8 @@
 	padding: 10px 15px;
 	background-color: #e95950;
 	color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;	
 }
 .header h1{
 	text-shadow: 0 2px 2px #888;
@@ -22,7 +21,7 @@
 	background-color: #fafafa;
 }
 
-.wrapper input{
+.wrapper form input{
 	flex: 1 1;
 	padding: 10px;
 	border: 1px solid rgba(0,0,0,.1);
