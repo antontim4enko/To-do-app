@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './style.css'
 
  class TodoItem extends Component {
     state = {
@@ -26,18 +27,17 @@ import React, {Component} from 'react';
     }
     render(){    
          return(
-           <li>
+           <li className="todo-item">
              {this.state.isEditing ?
                     <form>
                         <input type="text" defaultValue={this.props.text} ref="textInput" />
                         <button type="submit" onClick={(e)=>this.onSave(e, this.props.text)}>Save</button>
-                    </form> : <div><input onChange={() =>this.checkboxChange(this.props.id)} type="checkbox" checked={this.props.finished} /> {this.props.text }</div>}
+                    </form> : <div><label><input onChange={() =>this.checkboxChange(this.props.id)} type="checkbox" checked={this.props.finished} /> {this.props.text }</label></div>}
                     <div>
-                        <button onClick={this.onEditClick} >{this.state.isEditing ? "Cancel" : "Edit"}</button> 
-                        {this.state.isEditing ? " " :  <button onClick={() => this.delete(this.props.id)} >X</button>}
+                        <button className="controll-btns" onClick={this.onEditClick} >{this.state.isEditing ? "Cancel" : <i class="fa fa-pencil-alt"></i>}</button> 
+                        {this.state.isEditing ? " " :  <button className="controll-btns" onClick={() => this.delete(this.props.id)} ><i class="fas fa-trash-alt"></i></button>}
                      </div>  
-           </li>
-                        
+           </li>                       
          );
      }
  }

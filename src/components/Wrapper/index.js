@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TodoList from './../TodoList'
-
+import './style.css'
 
 class Wrapper extends Component{
 	constructor(props){
@@ -82,10 +82,10 @@ class Wrapper extends Component{
     render(){
        return(
            <div className="wrapper">
-              <div>Todo App</div>
+              <div className="header" ><h1>Todo App</h1></div>
                <form onSubmit={this.onAdd}>
-                  <input value={this.state.value} onChange={this.onChangeHandler} placeholder="enter task" />  
-               <button type="submit">Add</button>
+                  <input value={this.state.value} onChange={this.onChangeHandler} placeholder="Enter task" />  
+               <button type="submit">ADD</button>
                </form>
                
                 <TodoList check={this.togglecheck} delete={this.deleteItemKey} entries={this.state.items}
