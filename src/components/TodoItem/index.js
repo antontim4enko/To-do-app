@@ -16,21 +16,31 @@ import './style.css'
     }  
     onSave = (e, text)=>{
         e.preventDefault()
-        this.props.changeText(text, this.refs.textInput.value)
-        text = this.refs.textInput.value;
-        this.setState({
-            isEditing : false
-        })
+        if(this._textInput.value.trim()){
+          this.props.changeText(text, this._textInput.value)
+          text = this._textInput.value;
+          this.setState({
+              isEditing : false
+          })
+        }
+        
     }
     checkboxChange = (id) =>{
         this.props.checkToggle(id)
+    }
+
+    componentDidUpdate() {
+      console.log()
+      if(this._textInput){
+        this._textInput.focus()
+      }
     }
     render(){    
          return(
            <li className={this.state.isEditing ? "todo-item-editing" : "todo-item"}>
              {this.state.isEditing ?
                     <form>
-                        <input type="text" defaultValue={this.props.text} ref="textInput" />
+                        <input type="text" defaultValue={this.props.text} ref={(input) => { this._textInput = input;}} />
                         <button type="submit" onClick={(e)=>this.onSave(e, this.props.text)}>Save</button>
                     </form> : 
                     <div>
@@ -44,8 +54,8 @@ import './style.css'
               {
                 !this.state.isEditing && 
                     <div>
-                      <button className="controll-btn" onClick={this.onEditClick} ><i class="fa fa-pencil-alt"></i></button> 
-                      <button className="controll-btn" onClick={() => this.delete(this.props.id)} ><i class="fas fa-trash-alt"></i></button>
+                      <button className="controll-btn" onClick={this.onEditClick} ><i className="fa fa-pencil-alt"></i></button> 
+                      <button className="controll-btn" onClick={() => this.delete(this.props.id)} ><i className="fas fa-trash-alt"></i></button>
                     </div>
               }
                      
