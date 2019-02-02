@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './style.css'
 
- class TodoItem extends Component {
+ class NoteItem extends Component {
     state = {
         isDone:false,
         isEditing: false
@@ -14,19 +14,15 @@ import './style.css'
           isEditing :!this.state.isEditing 
       })
     }  
-    onSave = (e, text)=>{
+    onSave = (e, id)=>{
         e.preventDefault()
         if(this._textInput.value.trim()){
-          this.props.changeText(text, this._textInput.value)
-          text = this._textInput.value;
+          this.props.update(id, this._textInput.value);
           this.setState({
               isEditing : false
           })
         }
         
-    }
-    checkboxChange = (id) =>{
-        this.props.checkToggle(id)
     }
 
     componentDidUpdate() {
@@ -41,11 +37,10 @@ import './style.css'
              {this.state.isEditing ?
                     <form>
                         <input type="text" defaultValue={this.props.text} ref={(input) => { this._textInput = input;}} />
-                        <button type="submit" onClick={(e)=>this.onSave(e, this.props.text)}>Save</button>
+                        <button type="submit" onClick={(e) => this.onSave(e, this.props.id)}>Save</button>
                     </form> : 
                     <div>
                         <label className={this.props.finished ? "label-finished" : ""} >
-                          <input onChange={() =>this.checkboxChange(this.props.id)} type="checkbox" checked={this.props.finished} /> 
                           {this.props.text }
                         </label>
                     </div>  
@@ -64,4 +59,4 @@ import './style.css'
      }
  }
 
-export default TodoItem;
+export default NoteItem;

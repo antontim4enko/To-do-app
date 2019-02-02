@@ -8,7 +8,44 @@ body {
 	font-family: "Roboto", Arial, sans-serif;
 }
 .container{
-	display: flex;
-	justify-content: center;
 	padding: 30px;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.todoItem{
+	padding: 10px;
+	
+}
+body {
+	font-family: "Roboto", Arial, sans-serif;
+	padding: 40px;
+}
+
+#root{
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: center;
+	    justify-content: center;
+	padding: 30px;
+}
+.wrapper{
+	min-width: 320px;
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+	        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+.header{
+	padding: 14px 15px;
+	background-color: #7960e9;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;	
+}
+.header h1{
+	text-shadow: 0 2px 2px #888;
+}
+li{
+	list-style-type: none
 }

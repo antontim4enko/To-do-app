@@ -1,0 +1,21 @@
+.wrapper form{
+	padding: 10px;
+	display: -ms-flexbox;
+	display: flex;
+	background-color: #fafafa;
+}
+
+.wrapper form input{
+	-ms-flex: 1 1;
+	    flex: 1 1;
+	padding: 10px;
+	border: 1px solid rgba(0,0,0,.1);
+	margin-right: 5px;
+}
+.wrapper form button{
+	border: none;
+	padding: 0 13px;
+}
+.wrapper .todo-item-editing form {
+    padding: 7px;
+}
